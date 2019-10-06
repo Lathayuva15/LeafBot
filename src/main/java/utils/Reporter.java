@@ -11,8 +11,6 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.MediaEntityModelProvider;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporterConfiguration;
-
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 public abstract class Reporter extends AbstractTestNGCucumberTests{

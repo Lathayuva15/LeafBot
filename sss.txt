@@ -1,0 +1,117 @@
+package Viridity;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+public class Verify_Event_Creation {
+
+	public static void main(String[] args) throws InterruptedException {
+	
+		String exePath = "C:\\Users\\latha.j\\Desktop\\New folder\\chromedriver.exe";
+		 System.setProperty("webdriver.chrome.driver", exePath);
+		 WebDriver driver =new ChromeDriver();
+		 //Open URL
+		 driver.get("https://myvpowerint.com/");
+		 WebDriverWait waitforUserName=new WebDriverWait(driver, 05);
+		 waitforUserName.until(ExpectedConditions.presenceOfElementLocated(By.name("login-username")));
+		//Maximize Screen
+		driver.manage().window().maximize();
+		 WebDriverWait loginbtn=new WebDriverWait(driver, 10);
+		 loginbtn.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Login')]")));
+		//User Name
+		 driver.findElement(By.name("login-username")).sendKeys("tvsntesting1@viridityenergy.com");
+		 //Password
+		 driver.findElement(By.name("login-password")).sendKeys("9f6*#Bks#bee");
+		 //Login button
+		 driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
+		 WebDriverWait operbtn=new WebDriverWait(driver, 10);
+		 operbtn.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/nav-sidebar/nav/div/div[1]/div[2]/ul/li[7]/a")));
+		 //Operations 
+		 driver.findElement(By.xpath("//a[contains(text,'Operations')]")).click();
+		 //  /html/body/div[1]/div/div/nav-sidebar/nav/div/div[1]/div[2]/ul/li[7]/a
+		 WebDriverWait EventManagement=new WebDriverWait(driver, 10);
+		 EventManagement.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/nav-sidebar/nav/div/div[1]/div[2]/ul/li[7]/ul/li[2]/a")));
+		 //Event Management
+		 driver.findElement(By.xpath("/html/body/div[1]/div/div/nav-sidebar/nav/div/div[1]/div[2]/ul/li[7]/ul/li[2]/a")).click();
+		 WebDriverWait Eventbtn=new WebDriverWait(driver, 10);
+		 Eventbtn.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/action-header/div/div[2]/action-button/div/a")));
+		 //Create New Event button
+		 driver.findElement(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/action-header/div/div[2]/action-button/div/a")).click();
+		 WebDriverWait Dropdown=new WebDriverWait(driver, 20);
+		 Dropdown.until(ExpectedConditions.presenceOfElementLocated(By.name("eventName")));
+		 //Program Drop down select
+		 Select ProgramDD = new Select(driver.findElement(By.name("programDd")));
+		 //Select Program CE EConomic
+		 ProgramDD.selectByVisibleText("CE Economic DR");
+		 //Enter Event Name
+		 driver.findElement(By.name("eventName")).sendKeys("Automated Event");
+		 WebDriverWait CalStartDate=new WebDriverWait(driver, 10);
+		 CalStartDate.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[3]/div[1]/div/div[2]/span")));
+		 //Click Calender icon -Start Date
+		 driver.findElement(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[3]/div[1]/div/div[2]/span")).click();
+		 WebDriverWait StartDate=new WebDriverWait(driver, 10);
+		 StartDate.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[2]/td[2]/a")));
+		 //Select start  Date
+		 driver.findElement(By.xpath("((//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[5]/a)[1])")).click();
+		 WebDriverWait CalEndDate=new WebDriverWait(driver, 10);
+		 CalEndDate.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[3]/div[2]/div/div[2]/span")));
+		//Click Calender icon -End Date
+		 driver.findElement(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[3]/div[2]/div/div[2]/span")).click();
+		 WebDriverWait EndDate=new WebDriverWait(driver, 10);
+		 EndDate.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[2]/td[2]/a")));
+		 //Select End  Date
+		 driver.findElement(By.xpath("//a[contains(text(),'28')]")).click();
+		 WebDriverWait starttime=new WebDriverWait(driver, 10);
+		 starttime.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[4]/div[1]/label/section/div[2]/div[1]/input[1])")));
+		 //clear start time
+		//driver.findElement(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[4]/div[1]/label/section/div[2]/div[1]/input")).clear();
+		 driver.findElement(By.xpath("(/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[4]/div[1]/label/section/div[2]/div[1]/input[1])")).sendKeys(Keys.chord(Keys.CONTROL, "a"),"05");
+		 WebDriverWait Endtime=new WebDriverWait(driver, 10);
+		 Endtime.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"eventEndTime\"]/div[2]/div[3]")));
+
+	 driver.findElement(By.xpath("//*[@id=\"eventEndTime\"]/div[2]/div[1]/input")).sendKeys(Keys.chord(Keys.CONTROL, "a"),"10");
+	
+	 //driver.findElement(By.xpath("//*[@id=\"eventEndTime\"]/div[2]/div[1]/input")).clear();
+	 //Thread.sleep(10000);
+	 //Enter End time
+	// driver.findElement(By.xpath("//*[@id=\"eventEndTime\"]/div[2]/div[1]/input")).sendKeys("10");
+	 
+	 //Select Checkbox Dispatch Portfolio
+	 driver.findElement(By.name("portfolioDispatch")).click();
+	 WebDriverWait Dragbox=new WebDriverWait(driver, 10);
+	 Dragbox.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"tree-avail\"]/ul/li[1]/div/span[3]")));
+	 //Drag ad Drop
+	 
+	 String result = driver.findElement(By.xpath("//*[@id=\"tree-avail\"]/ul/li[1]/div/span[3]")).getText();
+	 System.out.println(result);
+	 Assert.assertEquals(result, "Baseline Economic");
+	 
+
+WebElement From = driver.findElement(By.xpath("//*[text()='Baseline Economic']"));
+WebElement To = driver.findElement(By.xpath("//*[@id=\"tree-in\"]"));
+Actions Panel = new Actions(driver);
+Panel.dragAndDrop(From,To).build().perform();
+
+WebDriverWait CreateDispatch=new WebDriverWait(driver, 10);
+CreateDispatch.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[8]/div/button[1]")));
+//Create Dispatch button click
+	 
+driver.findElement(By.xpath("/html/body/div[1]/div/div/section/div[2]/article/div/section/ui-view/div/div/form/div[8]/div/button[2]")).click();
+	 
+		
+				
+
+		
+	}
+
+}

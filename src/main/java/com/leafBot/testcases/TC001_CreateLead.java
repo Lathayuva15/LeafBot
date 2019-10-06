@@ -30,8 +30,8 @@ public class TC001_CreateLead extends  ProjectSpecificMethods{
 		.enterLastname(Lname)
 		.entercompanyName(cname)
 		.ClickCreateLeadbtn()
-		.ViewCreateLead()
-		.clickLogout();
+		.ViewCreateLead();
+		
 
 }
 }
