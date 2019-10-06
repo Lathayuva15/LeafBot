@@ -28,7 +28,7 @@ public ViewLeadPage ViewUpdatedName()
 }
 
 public ViewLeadPage clickLogout() {
-	click(locateElement("class","decorativeSubmit"));
+	click(locateElement("id","ext-gen590"));
 	return this;
 
 }
